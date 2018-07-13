@@ -1,6 +1,8 @@
 package com.official19.ajb.musicplayer;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,16 +10,34 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     TextView SongTitleTv;
     Button PlaylistBtn, BackBtn, PauseBtn, NextBtn;
+
+    MediaPlayer mp;
+    ArrayList mysong;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
+
+
+        Intent i = getIntent();
+        Bundle b = i.getExtras();
+
+        //mysong = (ArrayList) b.getParcelableArrayList("songList");
+        int position = b.getInt("pos", 0);
+        /*
+        Uri u = Uri.parse(mysong.get(position).toString());
+        mp = MediaPlayer.create(this, u);
+        mp.start();*/
+
         PlaylistBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
