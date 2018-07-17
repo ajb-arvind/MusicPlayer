@@ -27,17 +27,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         init();
 
-
-        Intent i = getIntent();
-        Bundle b = i.getExtras();
-
-        //mysong = (ArrayList) b.getParcelableArrayList("songList");
-        int position = b.getInt("pos", 0);
-        /*
-        Uri u = Uri.parse(mysong.get(position).toString());
-        mp = MediaPlayer.create(this, u);
-        mp.start();*/
-
         PlaylistBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
